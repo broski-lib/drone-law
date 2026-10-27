@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "updated": "2026-10-27",
+  "license": "CC0-1.0",
+  "notes": [
+    "This dataset is not legal advice and does not contain live TFRs, current airspace class, stadium schedules, or daylight times.",
+    "No rule here sets a private-property altitude floor. Property-owner rights and overflight are separate legal questions; a missing rule is not permission.",
+    "The CC0 license covers the original dataset content only. Cited law and source text keep their own terms."
+  ],
+  "rules": [
+    {
+      "id": "faa-400-ft-ceiling",
+      "jurisdictions": [
+        {
+          "id": "united-states",
+          "name": "United States",
+          "level": "federal"
+        }
+      ],
+      "category": "airspace",
+      "type": "restriction",
+      "applies_to": "part-107",
+      "scope": "All U.S. airspace",
+      "title": "400 ft AGL ceiling",
+      "message": "Part 107 flights may not exceed 400 ft above ground level. Within a 400-ft radius of a structure, you may fly up to 400 ft above the structure's uppermost point. Part 107 sets no minimum altitude.",
+      "source": {
+        "label": "14 CFR § 107.51(b)",
+        "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-107/subpart-B/section-107.51"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "faa-controlled-airspace",
+      "jurisdictions": [
+        {
+          "id": "united-states",
+          "name": "United States",
+          "level": "federal"
+        }
+      ],
+      "category": "airspace",
+      "type": "restriction",
+      "applies_to": "part-107",
+      "scope": "Class B, C, D, and Class E surface areas",
+      "title": "Controlled airspace requires authorization",
+      "message": "Class B, C, and D airspace, and the surface area of Class E airspace at an airport, require prior ATC authorization through LAANC or FAA DroneZone. Class G airspace does not require authorization.",
+      "source": {
+        "label": "14 CFR § 107.41",
+        "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-107/subpart-B/section-107.41"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "faa-tfr",
+      "jurisdictions": [
+        {
+          "id": "united-states",
+          "name": "United States",
+          "level": "federal"
+        }
+      ],
+      "category": "tfr",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "All U.S. airspace",
+      "title": "Temporary Flight Restrictions",
+      "message": "TFRs can close airspace with little notice. Check active and upcoming TFRs at https://tfr.faa.gov and review NOTAMs before every flight.",
+      "source": {
+        "label": "FAA TFR list",
+        "url": "https://tfr.faa.gov"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "faa-stadium",
+      "jurisdictions": [
+        {
+          "id": "united-states",
+          "name": "United States",
+          "level": "federal"
+        }
+      ],
+      "category": "stadium",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Within 3 NM of a qualifying stadium during an event",
+      "title": "Stadium flight restriction",
+      "message": "UAS operations are prohibited within 3 nautical miles of an FAA-designated stadium with a capacity of 30,000 or more, from 1 hour before the scheduled start of a qualifying event until 1 hour after it ends. Check the stadium schedule and current TFRs before flying near a venue.",
+      "source": {
+        "label": "Drones Are Prohibited In and Around Stadiums",
+        "url": "https://www.faa.gov/uas/getting_started/where_can_i_fly/airspace_restrictions/sports_stadiums"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "ohio-critical-facilities",
+      "jurisdictions": [
+        {
+          "id": "ohio",
+          "name": "Ohio",
+          "level": "state"
+        }
+      ],
+      "category": "state",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Ohio",
+      "title": "Critical facilities and emergency scenes",
+      "message": "Ohio prohibits flying in violation of federal drone law without FAA authorization, disrupting on-duty police, fire, or EMS, and photographing, recording, or loitering over or near a critical facility to further a crime involving physical harm or to damage or tamper with it. Disrupting responders and the critical-facility offenses carry misdemeanor-to-felony penalties. Critical facilities include infrastructure sites, courts, police stations, jails, military sites, and hospitals with air ambulance service.",
+      "source": {
+        "label": "Ohio Rev. Code §§ 4561.50–4561.51",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-4561.51"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "ohio-local-authority",
+      "jurisdictions": [
+        {
+          "id": "ohio",
+          "name": "Ohio",
+          "level": "state"
+        }
+      ],
+      "category": "state",
+      "type": "notice",
+      "applies_to": "part-107",
+      "scope": "Ohio",
+      "title": "Limits on local drone rules",
+      "message": "Ohio lets cities, townships, counties, and park districts regulate drones they own and operate, and recreational drone use in or above parks and other public property they own. It does not grant general authority over all airspace. For a Part 107 flight, check the specific park or property rule and any permit conditions.",
+      "source": {
+        "label": "Ohio Rev. Code § 4561.52",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-4561.52"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "ohio-state-parks",
+      "jurisdictions": [
+        {
+          "id": "ohio",
+          "name": "Ohio",
+          "level": "state"
+        }
+      ],
+      "category": "state",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Ohio state parks",
+      "title": "State parks require permission",
+      "message": "Inside Ohio state park boundaries, launching, landing, or operating a drone requires permission from the Division of Parks and Watercraft chief or authorized agent, except at airfields or landing zones maintained for drones. Drone photography or recording of park lands, waters, facilities, or activities also needs permission. No flying over open-air assemblies, beaches, boats, or roadways.",
+      "source": {
+        "label": "Ohio Admin. Code 1501:46-13-11(C)–(D)",
+        "url": "https://codes.ohio.gov/ohio-administrative-code/rule-1501:46-13-11"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "ohio-nature-preserves",
+      "jurisdictions": [
+        {
+          "id": "ohio",
+          "name": "Ohio",
+          "level": "state"
+        }
+      ],
+      "category": "state",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Ohio state nature preserves and natural areas",
+      "title": "Nature preserves require written permission",
+      "message": "In Ohio state nature preserves and natural areas, launching, landing, or operating a drone requires written permission from the Division of Natural Areas and Preserves chief, requested at least 30 days in advance. The same permission is required to photograph or record preserve lands and features; harassing people or wildlife with a drone is prohibited.",
+      "source": {
+        "label": "Ohio Admin. Code 1501:17-11-03(B)–(C)",
+        "url": "https://codes.ohio.gov/ohio-administrative-code/rule-1501:17-11-03"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "columbus-nature-preserves",
+      "jurisdictions": [
+        {
+          "id": "columbus-oh",
+          "name": "City of Columbus",
+          "level": "city"
+        }
+      ],
+      "category": "local",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Columbus nature preserves",
+      "title": "Drones prohibited in nature preserves",
+      "message": "Drones are prohibited in Columbus park areas designated as nature preserves, along with other motorized and non-motorized vehicles. Limited exceptions apply for official vehicles and approved accessibility equipment; city personnel need director approval. This applies only to designated preserves, not all Columbus parks.",
+      "source": {
+        "label": "Columbus Code § 919.27",
+        "url": "https://library.municode.com/oh/columbus/codes/code_of_ordinances?nodeId=TIT9STPAPUPRCO_CH919PARURE"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "columbus-park-permits",
+      "jurisdictions": [
+        {
+          "id": "columbus-oh",
+          "name": "City of Columbus",
+          "level": "city"
+        }
+      ],
+      "category": "local",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Columbus city property, organized events, and filming",
+      "title": "Event and filming permits",
+      "message": "Columbus park permits for organized events and filming on city property can include drone conditions. The Recreation and Parks Department's filming guidance requires drone operators to follow FAA rules, show certification on request, and file a flight plan with launch, landing, and route details. Ask the Office of Special Events before flying at a permitted event.",
+      "source": {
+        "label": "Columbus Code §§ 919.05–919.06",
+        "url": "https://library.municode.com/oh/columbus/codes/code_of_ordinances?nodeId=TIT9STPAPUPRCO_CH919PARURE"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "columbus-metro-parks-commercial",
+      "jurisdictions": [
+        {
+          "id": "columbus-oh",
+          "name": "City of Columbus",
+          "level": "city"
+        },
+        {
+          "id": "franklin-county-oh",
+          "name": "Franklin County",
+          "level": "county"
+        }
+      ],
+      "category": "local",
+      "type": "restriction",
+      "applies_to": "part-107",
+      "scope": "Columbus & Franklin County Metro Parks",
+      "title": "Commercial drone work requires a Metro Parks permit",
+      "message": "Commercial or media drone photography, and all other filming, in Columbus & Franklin County Metro Parks require a permit approved by Metro Parks. Email info@metroparks.net before flying.",
+      "source": {
+        "label": "Metro Parks FAQ: drone use",
+        "url": "https://www.metroparks.net/faqs/"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
+      "id": "columbus-metro-parks",
+      "jurisdictions": [
+        {
+          "id": "columbus-oh",
+          "name": "City of Columbus",
+          "level": "city"
+        },
+        {
+          "id": "franklin-county-oh",
+          "name": "Franklin County",
+          "level": "county"
+        }
+      ],
+      "category": "local",
+      "type": "allowance",
+      "applies_to": "recreational",
+      "scope": "Columbus & Franklin County Metro Parks during park hours",
+      "title": "Metro Parks allow hobby flying during park hours",
+      "message": "Recreational drone flying is allowed in all Columbus & Franklin County Metro Parks during park hours, except in state nature preserves, and only at the discretion of on-duty Park Rangers. Contact the rangers before flying. Scioto Grove has a designated drone field.",
+      "source": {
+        "label": "Metro Parks FAQ: drone use",
+        "url": "https://www.metroparks.net/faqs/"
+      },
+      "checked_on": "2026-10-27"
+    }
+  ]
+}
