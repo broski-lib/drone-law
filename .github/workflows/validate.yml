@@ -17,5 +17,8 @@ jobs:
           node-version: 24
       - name: Validate dataset.json against schema.json
         run: npx --yes -p ajv-cli@5 -p ajv-formats@3 ajv validate -s schema.json -d dataset.json --strict=true -c ajv-formats
-      - name: Check unique rule IDs
-        run: jq -e '([.rules[].id] | length) == ([.rules[].id] | unique | length)' dataset.json
+      - name: Check IDs and references
+        run: |
+          jq -e '([.jurisdictions[].id] | length) == ([.jurisdictions[].id] | unique | length)' dataset.json
+          jq -e '([.rules[].id] | length) == ([.rules[].id] | unique | length)' dataset.json
+          jq -e '(.jurisdictions | map(.id)) as $ids | all(.rules[].jurisdictions[]; . as $id | $ids | index($id) != null)' dataset.json

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "updated": "2026-10-27",
   "license": "CC0-1.0",
   "notes": [
@@ -7,15 +7,46 @@
     "No rule here sets a private-property altitude floor. Property-owner rights and overflight are separate legal questions; a missing rule is not permission.",
     "The CC0 license covers the original dataset content only. Cited law and source text keep their own terms."
   ],
+  "jurisdictions": [
+    {
+      "id": "united-states",
+      "name": "United States",
+      "level": "federal",
+      "codes": {
+        "iso_3166_1": "US"
+      }
+    },
+    {
+      "id": "ohio",
+      "name": "Ohio",
+      "level": "state",
+      "codes": {
+        "iso_3166_2": "US-OH",
+        "fips_state": "39"
+      }
+    },
+    {
+      "id": "franklin-county-oh",
+      "name": "Franklin County",
+      "level": "county",
+      "codes": {
+        "fips_county": "39049"
+      }
+    },
+    {
+      "id": "columbus-oh",
+      "name": "City of Columbus",
+      "level": "city",
+      "codes": {
+        "fips_place": "3918000"
+      }
+    }
+  ],
   "rules": [
     {
       "id": "faa-400-ft-ceiling",
       "jurisdictions": [
-        {
-          "id": "united-states",
-          "name": "United States",
-          "level": "federal"
-        }
+        "united-states"
       ],
       "category": "airspace",
       "type": "restriction",
@@ -32,11 +63,7 @@
     {
       "id": "faa-controlled-airspace",
       "jurisdictions": [
-        {
-          "id": "united-states",
-          "name": "United States",
-          "level": "federal"
-        }
+        "united-states"
       ],
       "category": "airspace",
       "type": "restriction",
@@ -53,11 +80,7 @@
     {
       "id": "faa-tfr",
       "jurisdictions": [
-        {
-          "id": "united-states",
-          "name": "United States",
-          "level": "federal"
-        }
+        "united-states"
       ],
       "category": "tfr",
       "type": "restriction",
@@ -74,11 +97,7 @@
     {
       "id": "faa-stadium",
       "jurisdictions": [
-        {
-          "id": "united-states",
-          "name": "United States",
-          "level": "federal"
-        }
+        "united-states"
       ],
       "category": "stadium",
       "type": "restriction",
@@ -95,16 +114,12 @@
     {
       "id": "ohio-critical-facilities",
       "jurisdictions": [
-        {
-          "id": "ohio",
-          "name": "Ohio",
-          "level": "state"
-        }
+        "ohio"
       ],
       "category": "state",
       "type": "restriction",
       "applies_to": "all",
-      "scope": "Ohio",
+      "scope": "Statewide",
       "title": "Critical facilities and emergency scenes",
       "message": "Ohio prohibits flying in violation of federal drone law without FAA authorization, disrupting on-duty police, fire, or EMS, and photographing, recording, or loitering over or near a critical facility to further a crime involving physical harm or to damage or tamper with it. Disrupting responders and the critical-facility offenses carry misdemeanor-to-felony penalties. Critical facilities include infrastructure sites, courts, police stations, jails, military sites, and hospitals with air ambulance service.",
       "source": {
@@ -116,16 +131,12 @@
     {
       "id": "ohio-local-authority",
       "jurisdictions": [
-        {
-          "id": "ohio",
-          "name": "Ohio",
-          "level": "state"
-        }
+        "ohio"
       ],
       "category": "state",
       "type": "notice",
       "applies_to": "part-107",
-      "scope": "Ohio",
+      "scope": "Statewide",
       "title": "Limits on local drone rules",
       "message": "Ohio lets cities, townships, counties, and park districts regulate drones they own and operate, and recreational drone use in or above parks and other public property they own. It does not grant general authority over all airspace. For a Part 107 flight, check the specific park or property rule and any permit conditions.",
       "source": {
@@ -137,11 +148,7 @@
     {
       "id": "ohio-state-parks",
       "jurisdictions": [
-        {
-          "id": "ohio",
-          "name": "Ohio",
-          "level": "state"
-        }
+        "ohio"
       ],
       "category": "state",
       "type": "restriction",
@@ -158,11 +165,7 @@
     {
       "id": "ohio-nature-preserves",
       "jurisdictions": [
-        {
-          "id": "ohio",
-          "name": "Ohio",
-          "level": "state"
-        }
+        "ohio"
       ],
       "category": "state",
       "type": "restriction",
@@ -179,11 +182,7 @@
     {
       "id": "columbus-nature-preserves",
       "jurisdictions": [
-        {
-          "id": "columbus-oh",
-          "name": "City of Columbus",
-          "level": "city"
-        }
+        "columbus-oh"
       ],
       "category": "local",
       "type": "restriction",
@@ -200,11 +199,7 @@
     {
       "id": "columbus-park-permits",
       "jurisdictions": [
-        {
-          "id": "columbus-oh",
-          "name": "City of Columbus",
-          "level": "city"
-        }
+        "columbus-oh"
       ],
       "category": "local",
       "type": "restriction",
@@ -219,18 +214,27 @@
       "checked_on": "2026-10-27"
     },
     {
+      "id": "columbus-model-aircraft",
+      "jurisdictions": [
+        "columbus-oh"
+      ],
+      "category": "local",
+      "type": "restriction",
+      "applies_to": "all",
+      "scope": "Columbus city parks",
+      "title": "Engine-powered model aircraft restricted to designated areas",
+      "message": "Columbus park rules restrict engine-powered model aircraft, chemically powered rockets, boats, cars, and similar devices to areas designated by the Recreation and Parks director. The code does not mention drones, so it is unclear whether a battery-powered drone counts. Confirm with the park before launching from a Columbus city park.",
+      "source": {
+        "label": "Columbus Code § 919.19",
+        "url": "https://library.municode.com/oh/columbus/codes/code_of_ordinances?nodeId=TIT9STPAPUPRCO_CH919PARURE"
+      },
+      "checked_on": "2026-10-27"
+    },
+    {
       "id": "columbus-metro-parks-commercial",
       "jurisdictions": [
-        {
-          "id": "columbus-oh",
-          "name": "City of Columbus",
-          "level": "city"
-        },
-        {
-          "id": "franklin-county-oh",
-          "name": "Franklin County",
-          "level": "county"
-        }
+        "columbus-oh",
+        "franklin-county-oh"
       ],
       "category": "local",
       "type": "restriction",
@@ -247,16 +251,8 @@
     {
       "id": "columbus-metro-parks",
       "jurisdictions": [
-        {
-          "id": "columbus-oh",
-          "name": "City of Columbus",
-          "level": "city"
-        },
-        {
-          "id": "franklin-county-oh",
-          "name": "Franklin County",
-          "level": "county"
-        }
+        "columbus-oh",
+        "franklin-county-oh"
       ],
       "category": "local",
       "type": "allowance",

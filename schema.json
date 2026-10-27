@@ -2,14 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/broski-lib/drone-law/main/schema.json",
   "title": "Drone law dataset",
-  "description": "A dataset of static drone rules for flight-planning apps. Live TFRs, airspace class, stadium schedules, and daylight times are supplied by the app.",
+  "description": "A dataset of static drone rules for developers. Live TFRs, airspace class, stadium schedules, and daylight times are supplied separately.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "updated", "license", "rules"],
+  "required": ["schema_version", "updated", "license", "jurisdictions", "rules"],
   "properties": {
     "schema_version": {
-      "const": "1.0.0",
-      "description": "Dataset format version. Apps should check this before parsing."
+      "const": "2.0.0",
+      "description": "Dataset format version. Check this before parsing."
     },
     "updated": {
       "type": "string",
@@ -29,10 +29,16 @@
         "maxLength": 500
       }
     },
+    "jurisdictions": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Places referenced by rules. IDs are local slugs; codes hold standard identifiers where available.",
+      "items": { "$ref": "#/definitions/jurisdiction" }
+    },
     "rules": {
       "type": "array",
       "minItems": 1,
-      "description": "Static rules. Apps filter these by location and operation type.",
+      "description": "Static rules. Filter these by location and operation type.",
       "items": { "$ref": "#/definitions/rule" }
     }
   },
@@ -41,12 +47,45 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "maxLength": 100,
-      "description": "Stable lowercase local identifier. Rule IDs are unique within the dataset. Jurisdiction IDs are local slugs, not ISO 3166, FIPS, GNIS, or other standard geospatial identifiers. Do not reuse a rule ID for a different rule."
+      "description": "Stable lowercase local identifier. Rule IDs are unique within the dataset. Jurisdiction IDs are local slugs; use codes for standard identifiers."
+    },
+    "codes": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "description": "Standard identifiers for the jurisdiction, where available.",
+      "properties": {
+        "iso_3166_1": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-1 alpha-2 country code."
+        },
+        "iso_3166_2": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}-[A-Z0-9]{1,3}$",
+          "description": "ISO 3166-2 subdivision code."
+        },
+        "fips_state": {
+          "type": "string",
+          "pattern": "^\\d{2}$",
+          "description": "FIPS state code."
+        },
+        "fips_county": {
+          "type": "string",
+          "pattern": "^\\d{5}$",
+          "description": "FIPS county code."
+        },
+        "fips_place": {
+          "type": "string",
+          "pattern": "^\\d{7}$",
+          "description": "FIPS place code."
+        }
+      }
     },
     "jurisdiction": {
       "type": "object",
       "additionalProperties": false,
-      "description": "A place where a rule applies. Use name and level to map the local slug to your own gazetteer.",
+      "description": "A place where a rule applies. Use name and level for display, and codes for mapping to standard datasets.",
       "required": ["id", "name", "level"],
       "properties": {
         "id": { "$ref": "#/definitions/id" },
@@ -59,7 +98,8 @@
         "level": {
           "enum": ["federal", "state", "county", "city", "park-district", "site"],
           "description": "The kind of jurisdiction."
-        }
+        },
+        "codes": { "$ref": "#/definitions/codes" }
       }
     },
     "source": {
@@ -104,8 +144,8 @@
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "description": "One or more places where the rule applies. List several when the same rule covers multiple jurisdictions.",
-          "items": { "$ref": "#/definitions/jurisdiction" }
+          "description": "IDs of the places where the rule applies. Each ID must exist in the top-level jurisdictions array.",
+          "items": { "$ref": "#/definitions/id" }
         },
         "category": {
           "enum": ["airspace", "tfr", "stadium", "state", "local", "other"],
