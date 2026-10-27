@@ -1,6 +1,6 @@
 # drone-law
 
-A small, downloadable dataset of static drone rules for vendors and flight-planning tools. It is incomplete and continuously changing as rules are researched, verified, and added.
+A small, downloadable dataset of drone rules for vendors and flight-planning tools. It is incomplete and updated as rules are researched and verified; laws and rules change.
 
 The goal is the kind of briefing shown in a flight-planning app: a plain-language rule, who it applies to, whether it restricts or allows the flight, an official source, and the date it was checked. The dataset supplies the static rules. Live TFRs, airspace class, stadium schedules, and daylight times come from the consumer's own sources.
 
