@@ -8,7 +8,7 @@
   "required": ["schema_version", "updated", "license", "jurisdictions", "rules"],
   "properties": {
     "schema_version": {
-      "const": "3.0.0",
+      "const": "1.0.0",
       "description": "Dataset format version. Check this before parsing."
     },
     "updated": {
