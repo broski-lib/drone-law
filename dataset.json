@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0.0",
+  "schema_version": "3.0.0",
   "updated": "2026-10-27",
   "license": "CC0-1.0",
   "notes": [
@@ -9,44 +9,31 @@
   ],
   "jurisdictions": [
     {
-      "id": "united-states",
+      "id": "US",
       "name": "United States",
-      "level": "federal",
-      "codes": {
-        "iso_3166_1": "US"
-      }
+      "level": "federal"
     },
     {
-      "id": "ohio",
+      "id": "US-OH",
       "name": "Ohio",
-      "level": "state",
-      "codes": {
-        "iso_3166_2": "US-OH",
-        "fips_state": "39"
-      }
+      "level": "state"
     },
     {
-      "id": "franklin-county-oh",
-      "name": "Franklin County",
-      "level": "county",
-      "codes": {
-        "fips_county": "39049"
-      }
-    },
-    {
-      "id": "columbus-oh",
+      "id": "3918000",
       "name": "City of Columbus",
-      "level": "city",
-      "codes": {
-        "fips_place": "3918000"
-      }
+      "level": "city"
+    },
+    {
+      "id": "columbus-franklin-metro-parks",
+      "name": "Columbus & Franklin County Metro Parks",
+      "level": "park-district"
     }
   ],
   "rules": [
     {
       "id": "faa-400-ft-ceiling",
       "jurisdictions": [
-        "united-states"
+        "US"
       ],
       "category": "airspace",
       "type": "restriction",
@@ -63,7 +50,7 @@
     {
       "id": "faa-controlled-airspace",
       "jurisdictions": [
-        "united-states"
+        "US"
       ],
       "category": "airspace",
       "type": "restriction",
@@ -80,7 +67,7 @@
     {
       "id": "faa-tfr",
       "jurisdictions": [
-        "united-states"
+        "US"
       ],
       "category": "tfr",
       "type": "restriction",
@@ -97,7 +84,7 @@
     {
       "id": "faa-stadium",
       "jurisdictions": [
-        "united-states"
+        "US"
       ],
       "category": "stadium",
       "type": "restriction",
@@ -114,7 +101,7 @@
     {
       "id": "ohio-critical-facilities",
       "jurisdictions": [
-        "ohio"
+        "US-OH"
       ],
       "category": "state",
       "type": "restriction",
@@ -131,7 +118,7 @@
     {
       "id": "ohio-local-authority",
       "jurisdictions": [
-        "ohio"
+        "US-OH"
       ],
       "category": "state",
       "type": "notice",
@@ -148,7 +135,7 @@
     {
       "id": "ohio-state-parks",
       "jurisdictions": [
-        "ohio"
+        "US-OH"
       ],
       "category": "state",
       "type": "restriction",
@@ -165,7 +152,7 @@
     {
       "id": "ohio-nature-preserves",
       "jurisdictions": [
-        "ohio"
+        "US-OH"
       ],
       "category": "state",
       "type": "restriction",
@@ -182,7 +169,7 @@
     {
       "id": "columbus-nature-preserves",
       "jurisdictions": [
-        "columbus-oh"
+        "3918000"
       ],
       "category": "local",
       "type": "restriction",
@@ -199,7 +186,7 @@
     {
       "id": "columbus-park-permits",
       "jurisdictions": [
-        "columbus-oh"
+        "3918000"
       ],
       "category": "local",
       "type": "restriction",
@@ -216,7 +203,7 @@
     {
       "id": "columbus-model-aircraft",
       "jurisdictions": [
-        "columbus-oh"
+        "3918000"
       ],
       "category": "local",
       "type": "restriction",
@@ -233,8 +220,7 @@
     {
       "id": "columbus-metro-parks-commercial",
       "jurisdictions": [
-        "columbus-oh",
-        "franklin-county-oh"
+        "columbus-franklin-metro-parks"
       ],
       "category": "local",
       "type": "restriction",
@@ -251,8 +237,7 @@
     {
       "id": "columbus-metro-parks",
       "jurisdictions": [
-        "columbus-oh",
-        "franklin-county-oh"
+        "columbus-franklin-metro-parks"
       ],
       "category": "local",
       "type": "allowance",

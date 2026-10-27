@@ -20,7 +20,7 @@ There is no build, database, website, or custom validation script.
 ```json
 {
   "id": "columbus-metro-parks",
-  "jurisdictions": ["columbus-oh", "franklin-county-oh"],
+  "jurisdictions": ["columbus-franklin-metro-parks"],
   "category": "local",
   "type": "allowance",
   "applies_to": "recreational",
@@ -37,23 +37,20 @@ There is no build, database, website, or custom validation script.
 
 ## Jurisdictions
 
-Jurisdictions are listed once at the top level:
+Use the standard code as the jurisdiction ID where one exists:
+
+- Country: ISO 3166-1, such as `US`.
+- State: ISO 3166-2, such as `US-OH`.
+- U.S. county: FIPS county code, such as `39049`.
+- U.S. place: FIPS place code, such as `3918000`.
+- Park districts and sites without a standard code: a lowercase local slug, such as `columbus-franklin-metro-parks`.
 
 ```json
-{
-  "id": "ohio",
-  "name": "Ohio",
-  "level": "state",
-  "codes": {
-    "iso_3166_2": "US-OH",
-    "fips_state": "39"
-  }
-}
+{ "id": "US-OH", "name": "Ohio", "level": "state" }
+{ "id": "3918000", "name": "City of Columbus", "level": "city" }
 ```
 
-Rules reference these IDs. `codes` is optional and holds standard identifiers where available: ISO 3166-1/2 for country and state, and FIPS state, county, or place for U.S. locations.
-
-IDs are local slugs. OGC API - Features does not define a jurisdiction ID format, so these work as local IDs; the codes support mapping to standard datasets.
+Rules reference these IDs directly. There is no separate mapping table. OGC API - Features does not define a jurisdiction ID format, so these standard codes work as local IDs and local slugs fill the gaps.
 
 ## Fields
 
@@ -62,7 +59,7 @@ The top level has `schema_version`, `updated`, `license`, `notes`, `jurisdiction
 | Rule field | Meaning |
 | --- | --- |
 | `id` | Stable lowercase identifier. Do not reuse it for a different rule. |
-| `jurisdictions` | IDs of the places where the rule applies. Each ID must exist in the top-level `jurisdictions` array. |
+| `jurisdictions` | IDs of the places where the rule applies. Each ID must exist in the top-level `jurisdictions` array. Use the standard code where one exists. |
 | `category` | UI grouping: `airspace`, `tfr`, `stadium`, `state`, `local`, or `other`. |
 | `type` | `restriction` (warning), `allowance` (allowed), or `notice` (information). |
 | `applies_to` | Operation type: `all`, `part-107`, or `recreational`. |
@@ -74,14 +71,13 @@ The top level has `schema_version`, `updated`, `license`, `notes`, `jurisdiction
 
 ## Using the dataset
 
-Match the flight location to jurisdiction IDs using your own geocoder. For a flight in Columbus, that is typically `columbus-oh`, `franklin-county-oh`, `ohio`, and `united-states`. Then filter the rules:
+Match the flight location to jurisdiction IDs using your own geocoder. For a flight in Columbus, that is typically `3918000`, `US-OH`, and `US`. Add a park-district ID such as `columbus-franklin-metro-parks` when you know the land manager. Then filter the rules:
 
 ```js
 const locationIds = new Set([
-  "columbus-oh",
-  "franklin-county-oh",
-  "ohio",
-  "united-states",
+  "3918000",
+  "US-OH",
+  "US",
 ]);
 
 const applicable = dataset.rules.filter((rule) =>
@@ -123,7 +119,7 @@ jq -e '(.jurisdictions | map(.id)) as $ids | all(.rules[].jurisdictions[]; . as 
 ## Add or update a rule
 
 1. Add or edit one object in `rules`.
-2. Add any missing place to the top-level `jurisdictions` array, with standard `codes` when available.
+2. Add any missing place to the top-level `jurisdictions` array. Use the standard code as its ID, or a lowercase slug when no standard code exists.
 3. Reference jurisdictions by ID.
 4. Use an official `source` and set `checked_on` to the date you checked it.
 5. Update the top-level `updated` date.
