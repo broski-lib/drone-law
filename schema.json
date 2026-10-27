@@ -2,14 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/broski-lib/drone-law/main/schema.json",
   "title": "Drone law dataset",
-  "description": "A vendor-facing dataset of static drone rules. Live TFRs, airspace class, stadium schedules, and daylight times are supplied by the consumer.",
+  "description": "A dataset of static drone rules for flight-planning apps. Live TFRs, airspace class, stadium schedules, and daylight times are supplied by the app.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "updated", "license", "rules"],
   "properties": {
     "schema_version": {
       "const": "1.0.0",
-      "description": "Dataset format version. Consumers should check this before parsing."
+      "description": "Dataset format version. Apps should check this before parsing."
     },
     "updated": {
       "type": "string",
@@ -32,7 +32,7 @@
     "rules": {
       "type": "array",
       "minItems": 1,
-      "description": "Static rules. Consumers filter these by location and operation type.",
+      "description": "Static rules. Apps filter these by location and operation type.",
       "items": { "$ref": "#/definitions/rule" }
     }
   },
@@ -41,12 +41,12 @@
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
       "maxLength": 100,
-      "description": "Stable lowercase slug. Do not reuse an ID for a different rule."
+      "description": "Stable lowercase local identifier. Rule IDs are unique within the dataset. Jurisdiction IDs are local slugs, not ISO 3166, FIPS, GNIS, or other standard geospatial identifiers. Do not reuse a rule ID for a different rule."
     },
     "jurisdiction": {
       "type": "object",
       "additionalProperties": false,
-      "description": "A place where a rule applies.",
+      "description": "A place where a rule applies. Use name and level to map the local slug to your own gazetteer.",
       "required": ["id", "name", "level"],
       "properties": {
         "id": { "$ref": "#/definitions/id" },
@@ -117,13 +117,13 @@
         },
         "applies_to": {
           "enum": ["all", "part-107", "recreational"],
-          "description": "all applies to any UAS operation; part-107 applies to Part 107 operations; recreational applies only to recreational operations."
+          "description": "Operation type. all applies to any UAS operation; part-107 applies to Part 107 operations; recreational applies only to recreational operations."
         },
         "scope": {
           "type": "string",
           "minLength": 1,
           "maxLength": 200,
-          "description": "Human-readable area or condition where the rule applies."
+          "description": "Display text for where or when the rule applies. Not used for spatial filtering; use jurisdictions for matching."
         },
         "title": {
           "type": "string",
