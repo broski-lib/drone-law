@@ -1,0 +1,25 @@
+{
+  "id": "example-park",
+  "name": "Example Park, fictional",
+  "level": "site",
+  "country": "US",
+  "parent_id": "example-city",
+  "is_example": true,
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [-100, 40],
+        [-99.99, 40],
+        [-99.99, 40.01],
+        [-100, 40.01],
+        [-100, 40]
+      ]
+    ]
+  },
+  "geometry_source": {
+    "url": "https://example.invalid/fictional-boundary",
+    "license": "CC0-1.0, synthetic coordinates",
+    "accuracy": "Invented test polygon. Does not describe a real park or jurisdiction."
+  }
+}

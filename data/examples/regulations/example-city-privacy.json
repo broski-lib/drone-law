@@ -1,0 +1,23 @@
+{
+  "id": "example-city-privacy",
+  "title": "Fictional city privacy rule",
+  "summary": "TEST DATA ONLY. An invented privacy-related record demonstrates a regulation with unknown geographic boundaries. This is not legal guidance.",
+  "jurisdiction_ids": ["example-city"],
+  "authority": "Fictional Example City Council",
+  "topics": ["privacy"],
+  "legal_status": "unknown",
+  "effective_from": "2026-01-01",
+  "effective_until": null,
+  "sources": [
+    {
+      "url": "https://example.invalid/fictional-privacy-rule",
+      "title": "Invented city privacy ordinance",
+      "citation": "FICTIONAL Section 2",
+      "checked_on": "2026-10-26",
+      "rights": "CC0-1.0, original fictional fixture. No real legal text."
+    }
+  ],
+  "reviewed_on": "2026-10-26",
+  "is_example": true,
+  "supersedes": []
+}

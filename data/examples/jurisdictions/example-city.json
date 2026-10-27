@@ -1,0 +1,10 @@
+{
+  "id": "example-city",
+  "name": "Example City, fictional",
+  "level": "municipal",
+  "country": "US",
+  "parent_id": null,
+  "is_example": true,
+  "geometry": null,
+  "geometry_source": null
+}

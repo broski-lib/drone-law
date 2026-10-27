@@ -1,0 +1,24 @@
+name: Release downloads
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run check
+      - run: tar -czf drone-law.tar.gz -C dist .
+      - run: gh release create "$GITHUB_REF_NAME" drone-law.tar.gz dist/manifest.json --generate-notes --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}
