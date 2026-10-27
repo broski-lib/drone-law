@@ -3,7 +3,7 @@
   "updated": "2026-10-27",
   "license": "CC0-1.0",
   "notes": [
-    "This dataset is not legal advice and does not contain live TFRs, current airspace class, stadium schedules, or daylight times.",
+    "This dataset is incomplete and continuously changing. It is not legal advice and does not contain live TFRs, current airspace class, stadium schedules, or daylight times.",
     "No rule here sets a private-property altitude floor. Property-owner rights and overflight are separate legal questions; a missing rule is not permission.",
     "The CC0 license covers the original dataset content only. Cited law and source text keep their own terms."
   ],
